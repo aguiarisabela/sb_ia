@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradutor - T5</title>
+</head>
+<body>
+    <h1>Tradutor T5 - Traduzir para Português</h1>
+
+    <form action="/traduzir_texto" method="POST">
+        <label for="texto">Texto a ser traduzido:</label><br>
+        <textarea name="texto" id="texto" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Traduzir Texto</button>
+    </form>
+
+    {% if texto_traduzido %}
+        <h3>Texto Traduzido:</h3>
+        <p>{{ texto_traduzido }}</p>
+    {% endif %}
+
+    <hr>
+
+
+    <form action="/traduzir_docx" method="POST" enctype="multipart/form-data">
+        <label for="file">Escolha um arquivo DOCX para traduzir:</label><br>
+        <input type="file" name="file" id="file" accept=".docx"><br><br>
+        <button type="submit">Traduzir Arquivo DOCX</button>
+    </form>
+
+</body>
+</html>
